@@ -30,7 +30,26 @@ func main() {
 
 	info(square1)
 	info(circle1)
+
+	/*
+		Build and use an anonymous func
+	*/
+	func() {
+		arg2 := append(arg, 10, 11)
+		fmt.Println("arg2 --> ", arg2)
+	}()
+
+	fmt.Println("arg3 -->", fun2())
+
+	fmt.Println("fun3 -->", fun3(arg))
+
+	//f := fun4(fun3(arg), arg)
+	//fmt.Println("fun4 -->", f())
+
+	fmt.Println("fun5 -->", fun5())
 }
+
+//----------------------------------------------------------------------------------------
 
 /*
 	Hands on exercise
@@ -152,4 +171,52 @@ var square1 = square{
 
 var circle1 = circle{
 	radio: 68.45,
+}
+
+/*
+ Assign a func to a variable, then call that func
+*/
+var fun2 = func() []int {
+	arg3 := append(arg, 21, 22, 23, 24, 25)
+	return arg3
+}
+
+/*
+ Create a func which returns a func
+● assign the returned func to a variable
+● call the returned func
+*/
+
+func fun3(a []int) func() []int {
+	return func() []int {
+		arr := []int{}
+		for _, v := range a {
+			arr = append(a, v)
+		}
+		fmt.Println("arr -->", arr)
+		return arr
+	}
+}
+
+/*
+A “callback” is when we pass a func into a func as an argument. For this exercise,
+● pass a func into a func as an argument
+*/
+
+func fun4(c func(a []int) func() []int, arr []int) func() []int {
+	f := c(arr)
+	return f
+}
+
+/*
+Closure is when we have “enclosed” the scope of a variable in some code block. For this
+hands-on exercise, create a func which “encloses” the scope of a variable:
+*/
+
+func fun5() func() int {
+	count := 0
+	return func() int {
+		count++
+		return count
+	}
 }
