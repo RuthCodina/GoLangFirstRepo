@@ -4,14 +4,15 @@ import "fmt"
 
 func main() {
 	//print number from 1 to 100
-	/*x := 1
-	for {
-		if x <= 100 {
-			fmt.Println(x)
-			x++
+	/*
+		x := 1
+		for {
+			if x <= 100 {
+				fmt.Println(x)
+				x++
+			}
 		}
-	}*/
-
+	*/
 	/*Print every rune code point of the uppercase alphabet three times. Your output should look like
 	this:
 		65
@@ -24,13 +25,15 @@ func main() {
 			U+0042 'B'
 	… through the rest of the alphabet characters
 	*/
-
-	/*for i := 65; i <= 90; i++ {
-		fmt.Print(i, "\n")
-		for j := 0; j < 3; j++ {
-			fmt.Printf("\t%#U\n", i)
+	/*
+		for i := 65; i <= 90; i++ {
+			fmt.Print(i, "\n")
+			for j := 0; j < 3; j++ {
+				fmt.Printf("\t%#U\n", i)
+			}
 		}
-	}*/
+	*/
+
 	/*Create a for loop using this syntax
 	● for condition { }
 	Have it print out the years you have been alive.
